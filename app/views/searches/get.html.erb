@@ -1,0 +1,38 @@
+<div id="page">
+
+  <div id="sidebar">
+    <ul id="sidebar-items">
+      <li>
+        <h3>About the Application</h3>
+        <ul class="links">
+          <li><a href="http://skullspace.ca">SkullSpace - A Hackerspace</a></li>
+          <li><a href="http://rrc.mb.ca">Red River College</a></li>
+          <li><a href="http://me.rrc.mb.ca/catalogue/CourseDescriptions.aspx?ProgCode=INFNF-DP&RegionCode=WPG#COMP-2126">Course Description</a></li>
+        </ul>
+        <h3>Recent Searches</h3>
+        <ul>
+          <%- @searches.each do |search| %>
+          <li style="font-size: xx-small;"><%= time_ago_in_words(search.created_at) %> ago: "<%= search.query %>"</li>
+          <%- end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <h1>UrbanDictionary Looker-Upper</h1>
+
+    <p style="border-bottom: 1px dashed #BBB; padding: 0 10px 20px; margin-bottom: 20px;">This is a simple app that searches through UrbanDictionary's word definitions with the word that <strong>you</strong> supply and returns a random defintion. Give it a try!</p>
+    <p>Some example usage here....</p>
+
+    <form>
+      <input type="text" id="search_q" /> <input class="same" type="submit" value="What does it mean???" />
+    </form>
+
+    <ul id="definition_results">
+    </ul>
+
+  </div>
+
+  <div id="footer">&copy; Mark Campbell</div>
+</div>
