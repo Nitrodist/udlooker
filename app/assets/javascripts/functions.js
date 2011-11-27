@@ -4,7 +4,7 @@ $(function() {
     var q = $("#search_q").val();
     if (q == "") 
       return false;
-    alert("test");
+
     $.getJSON("/definitions", { q: q }, function(json) {
       $("#definition_results").prepend("<li class='hidden'>" + 
                                       "<dl>" +
