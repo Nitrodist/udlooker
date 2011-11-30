@@ -10,7 +10,7 @@ class DefinitionsController < ApplicationController
     s.query = params[:q]
     s.save
 
-    Typhoeus::Request.new(url)
+    request = Typhoeus::Request.new(url)
     hydra = Typhoeus::Hydra.new
     hydra.queue(request)
     hydra.run
