@@ -1,25 +1,5 @@
 class DefinitionsController < ApplicationController
 
-
-
-{ "has_related_words" : false,
-  "images" : [  ],
-  "list" : [ { "current_vote" : "",
-        "defid" : 963116,
-        "definition" : "A whiney admin in the #myspleen channel that complains about the bot performing google searches.",
-        "example" : "Nitrodist is a whiney administrator.",
-        "permalink" : "http://nitrodist.urbanup.com/963116",
-        "thumbs_down" : 10,
-        "thumbs_up" : 2,
-        "word" : "nitrodist"
-      } ],
-  "pages" : 1,
-  "result_type" : "exact",
-  "total" : 1
-}
-
-
-
   def get
     render :text => ' ' if !params[:q].present?
 
