@@ -10,7 +10,7 @@ gem 'therubyracer'
 gem 'pg'
 gem 'sqlite3'
 
-gem 'urbanlexicophile', '~> 0.1.0'
+gem 'typhoeus', '~> 0.3.3' 
 
 
 # Gems used only for assets and not required
