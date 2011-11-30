@@ -8,7 +8,6 @@ gem 'rails', '3.1.3'
 gem 'therubyracer'
 
 gem 'pg'
-gem 'sqlite3'
 
 gem 'typhoeus', '~> 0.3.3' 
 
