@@ -10,28 +10,24 @@ class DefinitionsController < ApplicationController
     s.query = params[:q]
     s.save
 
-    req = Typhoeus::request.new(url)
-    hydra = Typhoeus::Hydra.new
-    hydra.queue(req)
-    hydra.run
+    response = Typhoeus::Request.get(url)
 
-    req.on_complete do |response|
-      if response.success?
-        json = JSON.parse(response.body)
-        hash = Hash.new
-        definition = json.list.sample
-        hash[:title] = definition.word
-        hash[:definition] = definition.definition
-      elsif response.timed_out?
-        # aw hell no
-        render :text => ' '
-      elsif response.code == 0
-        # Could not get an http response, something's wrong.
-        render :text => ' '
+    if response.success?
+      json = JSON.parse(response.body)
+      hash = Hash.new
+      p json
+      definition = json['list'].sample
+      hash['title'] = definition['word']
+      hash['definition'] = definition['definition']
+      if hash['title'] == nil
+        render :json  => ({ 'notfound' => true }).to_json
       else
-        # Received a non-successful http response.
-        render :text => ' '
+        render :json => hash.to_json
       end
+    else
+      # Received a non-successful http response.
+      render :text => ' '
     end
+
   end
 end
