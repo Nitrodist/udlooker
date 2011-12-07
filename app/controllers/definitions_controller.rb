@@ -3,7 +3,7 @@ class DefinitionsController < ApplicationController
   def get
     render :text => ' ' if !params[:q].present?
 
-    url = "http://www.urbandictionary.com/iphone/search/define?term=" + params[:q]
+    url = "http://www.urbandictionary.com/iphone/search/define?term=" + params[:q].replace(' ', '%20')
 
     # log our search
     s = Search.new 
