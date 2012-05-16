@@ -19,7 +19,7 @@ class DefinitionsController < ApplicationController
       if result_hash['title'] == nil
         render :json => ({ 'notfound' => true }).to_json
       else
-        render :json => hash.to_json
+        render :json => result_hash.to_json
       end
 
     else
